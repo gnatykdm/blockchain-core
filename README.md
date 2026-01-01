@@ -1,12 +1,5 @@
 # cpp-blockchain
 
-  ____   ____  ____  _      ____  _             _             
- / ___| / ___|| __ )| |    / ___|| | ___   __ _(_)_ __   __ _ 
- \___ \| |    |  _ \| |    \___ \| |/ _ \ / _` | | '_ \ / _` |
-  ___) | |___ | |_) | |___  ___) | | (_) | (_| | | | | | (_| |
- |____/ \____||____/|_____|____/|_|\___/ \__, |_|_| |_|\__, |
-                                         |___/         |___/ 
-
 A lean, modular C++17 blockchain prototype focused on clarity, testability, and education.
 
 [![Build Status](https://img.shields.io/badge/build-untested-lightgrey.svg)](https://example.com)
