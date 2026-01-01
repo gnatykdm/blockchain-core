@@ -17,7 +17,7 @@ list(FILTER ALL_SRC EXCLUDE REGEX ".*/CMakeFiles/.*")
 list(FILTER ALL_SRC EXCLUDE REGEX ".*/out/.*")
 list(FILTER ALL_SRC EXCLUDE REGEX ".*/build/.*")
 
-add_executable(${PROJECT_NAME} ${ALL_SRC})
+add_executable(${PROJECT_NAME} ${ALL_SRC} "include/Amount.h")
 
 target_include_directories(${PROJECT_NAME} PRIVATE 
     "${CMAKE_CURRENT_SOURCE_DIR}/include"
