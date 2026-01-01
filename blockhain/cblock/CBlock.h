@@ -6,34 +6,35 @@
 #include <vector>
 
 #include "Types.h"
-#include "CTransaction.h"
+#include "blockchain/ctransaction/CTransaction.h"
 
 namespace blockchain::cblock {
-	class CBlock {
-	private:
-		const i32 bIndex;										// Position of the block in the blockchain
-		const std::string bPreviousHash;						// Hash of the previous block
-		const std::string bCurrentHash;							// Hash of the current block
-		const std::time_t bTimestamp;							// Time when the block was created
 
-		std::vector<ctransaction::CTransaction> bTransactions;	// List of transactions in the block
-		i32 nNonce;											    // Nonce used for mining
+class CBlock {
+private:
+    const i64 bIndex;
+    const std::string bPreviousHash;
+    std::string bCurrentHash;
+    const std::time_t bTimestamp;
 
-		void calculateHash();									// Method to calculate the block's hash
-	public:
-		explicit CBlock(i64 index, const std::string& previousHash, const std::string& currentHash, std::time_t timestamp);
+    std::vector<ctransaction::CTransaction> bTransactions;
+    i32 nNonce;
 
-		void blockMining(i32 difficulty);
-		void addTransaction(const ctransaction::CTransaction& transaction);
+    std::string calculateHash() const;
+    static std::string sha256(const std::string& input);
 
-		std::string getBlockInfo() const;
+public:
+    explicit CBlock(i64 index, const std::string& previousHash);
 
-		i32 getNonce() const { return nNonde; };
-		i32 getIndex() const { return bIndex; };
+    void blockMining(i32 difficulty);
+    void addTransaction(const ctransaction::CTransaction& transaction);
 
-		i32 getTransactionCount() const { return bTransactions.size(); };
-		std::time_t getTimestamp() const { return bTimestamp; };
-	};
-}
+    i32 getNonce() const { return nNonce; }
+    i64 getIndex() const { return bIndex; }
+    size_t getTransactionCount() const { return bTransactions.size(); }
+    std::time_t getTimestamp() const { return bTimestamp; }
+};
 
-#endif // __CBLOCK_H__
+} // namespace blockchain::cblock
+
+#endif
